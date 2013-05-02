@@ -19,6 +19,7 @@
 				<include name="**/*.user" />
 				<include name="bin/**" />
 				<include name="AddIns/**" />
+				<exclude name="src/**" />
 			</fileset>
 		</delete>
 	</target>
