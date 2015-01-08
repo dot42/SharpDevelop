@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="dot42-SharpDevelop" default="compile-release" basedir=".">
+
+	<property name="nant.settings.currentframework" value="net-4.0" />
+
+	<property name="basedir" value="${project::get-base-directory()}" />
+	<include buildfile="${basedir}\..\Common\Build\Common.build"/>
+	
+	<target name="clean" description="remove all generated files">
+		<!-- Remove all working files -->
+		<delete>
+			<fileset basedir="${basedir}">
+				<include name="**/obj/**" />
+				<include name="**/bin/**" />
+				<include name="**/out/**" />
+				<include name="**/output/**" />
+				<include name="**/*.sln.cache" />
+				<include name="**/*.suo" />
+				<include name="**/*.user" />
+				<include name="bin/**" />
+				<include name="AddIns/**" />
+				<exclude name="src/**" />
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="compile-debug" description="Compile SharpDevelop in Debug mode">
+		<msbuild project="${basedir}\SharpDevelop.sln" target="Rebuild">
+			<property name="Configuration" value="Debug"/>
+		</msbuild>
+	</target>
+	
+	<target name="compile-release" description="Compile SharpDevelop in Release mode">
+		<msbuild project="${basedir}\SharpDevelop.sln" target="Rebuild">
+			<property name="Configuration" value="Release"/>
+		</msbuild>
+	</target>
+
+</project>
