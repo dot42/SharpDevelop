@@ -4,7 +4,8 @@
 	<property name="nant.settings.currentframework" value="net-4.0" />
 
 	<property name="basedir" value="${project::get-base-directory()}" />
-	<include buildfile="${basedir}\..\Common\Build\Common.build"/>
+	<property name="buildtoolsdir" value="${basedir}\..\Common\Build" />
+	<include buildfile="${buildtoolsdir}\Common.build"/>
 	
 	<target name="clean" description="remove all generated files">
 		<!-- Remove all working files -->

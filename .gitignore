@@ -1,6 +1,7 @@
 # ignore all obj and bin folders (even in subdirectories)
 obj/
 bin/
+*.user
 /REVISION
 /build/
 /AddIns/
